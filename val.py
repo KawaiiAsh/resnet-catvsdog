@@ -17,7 +17,7 @@ model = resnet50(weights=model_weights)
 num_ftrs = model.fc.in_features
 model.fc = torch.nn.Linear(num_ftrs, 2)
 
-# 加载你的模型状态字典，确保映射到CPU
+# 加载模型状态字典，确保映射到CPU
 model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
 model.eval()
 
